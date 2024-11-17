@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Audience Segment</title>
+</head>
+<body>
+    <h1>Create Audience Segment</h1>
+    <form th:action="@{/audience/create}" th:object="${segment}" method="post">
+        <label for="name">Segment Name:</label>
+        <input type="text" id="name" th:field="*{name}" required />
+        <br>
+
+        <h3>Define Conditions</h3>
+
+        <!-- Spending Condition -->
+        <label for="spendvisitcondition">Spending Condition:</label>
+        <select id="spendvisitcondition" th:field="*{spendvisitcondition}">
+            <option value="greater">Greater than</option>
+            <option value="less">Less than</option>
+            <option value="equal">Equal to</option>
+        </select>
+        <input type="number" id="spendingValue" th:field="*{spendingValue}" placeholder="e.g., 10000" required>
+        <br>
+
+        <!-- Visit Condition -->
+        <label for="visitCondition">Visit Condition:</label>
+        <select id="visitCondition" th:field="*{visitCondition}">
+            <option value="greater">Greater than</option>
+            <option value="less">Less than</option>
+            <option value="equal">Equal to</option>
+        </select>
+        <input type="number" id="visitValue" th:field="*{visitValue}" placeholder="e.g., 3">
+        <br>
+
+        <!-- Last Visit Condition -->
+        <label for="lastVisitCondition">Last Visit Condition:</label>
+        <select id="lastVisitCondition" th:field="*{lastVisitCondition}">
+            <option value="before">Before</option>
+            <option value="within">Within</option>
+        </select>
+        <input type="number" id="lastVisitMonths" th:field="*{lastVisitMonths}" placeholder="e.g., 3">
+        <br>
+
+        <!-- AND/OR Condition Logic -->
+        <label for="conditionLogic">Condition Logic:</label>
+        <select id="conditionLogic" th:field="*{conditionLogic}">
+            <option value="AND">AND</option>
+            <option value="OR">OR</option>
+        </select>
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit">Create Segment</button>
+    </form>
+</body>
+</html>

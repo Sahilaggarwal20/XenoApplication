@@ -1,0 +1,12 @@
+<!-- segments.html -->
+<div th:each="segment : ${segments}">
+    <h3 th:text="${segment.name}"></h3>
+    <p>Audience Size: <span th:text="${segment.audienceSize}"></span></p>
+    <div>
+        <h4>Campaigns</h4>
+        <div th:each="campaign : ${campaigns}">
+            <p th:text="${campaign.name}"></p>
+            <p th:text="${campaign.createdAt}"></p>
+        </div>
+    </div>
+</div>
